@@ -1,0 +1,17 @@
+/* CSSスタイルの指定 */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#guessInput {
+    width: 50px;
+}
+
+#guessButton {
+    margin-top: 10px;
+}
