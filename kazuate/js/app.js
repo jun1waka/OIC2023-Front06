@@ -22,13 +22,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // 残りの試行回数を減らす処理を追加する
+        remainingAttempts--;
 
         // 予想が正解の場合の処理を追加する
-
+        if (guess === randomNumber) {
+            message.textContent = `おめでとうございます！正解です！${10-remainingAttempts}回の挑戦でした。`;
+            guessButton.disabled = true; // 予想ボタンを無効にする
+        } 
         // 残りの試行回数が0の場合、ゲームオーバーの処理を追加する
-
+        else if (remainingAttempts === 0) {
+            message.textContent = `ゲームオーバーです。正解は${randomNumber}でした。もう一度挑戦してください！`;
+            guessButton.disabled = true; // 予想ボタンを無効にする
+        } 
         // 不正解の場合のヒントを表示する処理を追加する
-
+        else {
+            const hint = guess > randomNumber ? 'もっと小さい数です。' : 'もっと大きい数です。';
+            message.textContent = `${hint} あと${remainingAttempts}回の挑戦があります。`;
+        }
         // 入力欄をクリアしてフォーカスする処理を追加する
+        guessInput.value = '';
+        guessInput.focus();
     });
 });
